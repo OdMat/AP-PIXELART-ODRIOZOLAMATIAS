@@ -1,18 +1,50 @@
+body{
+	min-height: 100%;
+}
 #container{
+	height:100%;
+	width:80%;
 	margin:0 auto;
 }
 #colorPick{
-	display:inline-block;
 	float:left;
-	width:400px;
+	display:inline-block;
+	width:20%;
 }
 #accionesBotones{
 	display:inline-block;
 	float:right;
-	width:400px;
+	width:20%;
 }
 #grilla{
 	display:inline-block;
-	width:400px;
+	width:60%;
 	height: 400px;
+}
+#grilla .cell{
+	display: inline-block;
+	background-color: #ecf0f1;
+	outline: #666 solid thin;
+	cursor:pointer;
+}
+#grilla .cell.no-border{
+	outline:none;
+}
+#colorPick .select{
+	border:2px solid orange;
+}
+#colorPick div {
+    float: left;
+    width:40%;
+    cursor: pointer;
+    border-radius: 24px;
+    margin: 2px;
+    border: 1px solid #f1f1f1;
+}
+.no-border{
+	outline:none;
+}
+button{
+	width:30px;
+	height:30px;
 }
