@@ -1,0 +1,18 @@
+#container{
+	margin:0 auto;
+}
+#colorPick{
+	display:inline-block;
+	float:left;
+	width:400px;
+}
+#accionesBotones{
+	display:inline-block;
+	float:right;
+	width:400px;
+}
+#grilla{
+	display:inline-block;
+	width:400px;
+	height: 400px;
+}
