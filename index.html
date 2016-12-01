@@ -1,43 +1,123 @@
 <html>
 	<head>
 		<title>Pixel Art Editor</title>
-		<link rel="stylesheet"  type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet"  type="text/css" href="ionicons-2.0.1/css/ionicons.min.css">
 		<link rel="stylesheet"  type="text/css" href="css/pixelart.css">
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="scripts/jquery-3.1.1.min.js"></script>
+		<script src="scripts/html2canvas.js"></script>
 		<script src="scripts/pixelart.js"></script>
+        <script src='scripts/spectrum.js'></script>
+        <link rel='stylesheet' href='css/spectrum.css' />
 	</head>
 	<body>
+        <div id="left" class="help">
+            <h1>Ayuda</h1>
+            <p>Para dibujar haga click y arrastre sobre la grilla, para borrar utilize el click derecho</p>
+            <img src="images/dibujar.png">
+            <p>Para cambiar de color haga click sobre alguno de los colores. Si ninguno de los colores le gusta puede agregar su propio color</p>
+            <img src="images/color.png">
+            <p>Si quiere cambiar el tamaño de los pixeles ingrese un numero en el campo size y clickee sobre la flecha, si el quiere 100 pixeles debe ingresar el numero 10 (10 x 10).</p>
+            <img src="images/pixeles.png">
+        </div>
 		<div id="container">
-			<div id="colorPick">
-				<div class="#001f3f"></div>
-				<div class="#0074D9"></div>
-				<div class="#7FDBFF"></div>
-				<div class="#39CCCC"></div>
-				<div class="#3D9970"></div>
-				<div class="#2ECC40"></div>
-				<div class="#01FF70"></div>
-				<div class="#FFDC00"></div>
-				<div class="#FF851B"></div>
-				<div class="#FF4136"></div>
-				<div class="#85144b"></div>
-				<div class="#F012BE"></div>
-
+        	<div id="Animacion">
+				<div id="images">
+				</div>
+                <div id="anim">
+                    <img src="images/play.png">
+                    <canvas>
+                    </canvas>
+                </div>
 			</div>
 			<div id="grilla">
 			</div>
-			<div id="accionesBotones">
-				<div>
-					<p></p>
-					<input id="resize" type="" name="">
-					<button id="sizeit"></button>
-				</div>
-				<button id="reset">
-					<span class="ion-trash-a">
-				</button>
-				<button id="toggleBorder">
-					<span class="ion-ios-grid-view">
-				</button>
-			</div>
+            <div id="actions">
+                <div id="colorPick">
+                    <div class="#1abc9c cuadrado"></div>
+                    <div class="#16a085 cuadrado"></div>
+                    <div class="#2ecc71 cuadrado"></div>
+                    <div class="#27ae60 cuadrado"></div>
+                    <div class="#3498db cuadrado"></div>
+                    <div class="#2980b9 cuadrado"></div>
+                    <div class="#9b59b6 cuadrado"></div>
+                    <div class="#8e44ad cuadrado"></div>
+                    <div class="#34495e cuadrado"></div>
+                    <div class="#2c3e50 cuadrado"></div>   
+                    <div class="#f1c40f cuadrado"></div>
+                    <div class="#f39c12 cuadrado"></div>
+                    <div class="#e67e22 cuadrado"></div>
+                    <div class="#d35400 cuadrado"></div>
+                    <div class="#e74c3c cuadrado"></div>
+                    <div class="#c0392b cuadrado"></div>
+                    <div class="#ecf0f1 cuadrado"></div>
+                    <div class="#bdc3c7 cuadrado"></div>
+                    <div class="#95a5a6 cuadrado"></div>
+                    <div class="#7f8c8d cuadrado"></div>
+                    <div class="#000000 cuadrado"></div>
+                    <div class="#d35400 cuadrado"></div>
+                    <div class="#e74c3c cuadrado"></div>
+                    <div class="#c0392b cuadrado"></div>
+                    <div class="#ecf0f1 cuadrado"></div>
+                    <div class="#bdc3c7 cuadrado"></div>
+                    <div class="#95a5a6 cuadrado"></div>
+                    <div class="#7f8c8d cuadrado"></div>
+                    <div class="#000000 cuadrado"></div>
+                    <div class="#d35400 cuadrado"></div>
+                    <div class="#e74c3c cuadrado"></div>
+                    <div class="#c0392b cuadrado"></div>
+                    <div class="#ecf0f1 cuadrado"></div>
+                    <div class="#bdc3c7 cuadrado"></div>
+                    <div class="#95a5a6 cuadrado"></div>
+                    <div class="#7f8c8d cuadrado"></div>
+                    <div class="#000000 cuadrado"></div>
+                    <div class="#d35400 cuadrado"></div>
+                    <div class="#e74c3c cuadrado"></div>
+                    <div class="#c0392b cuadrado"></div>
+                    <div class="#ecf0f1 cuadrado"></div>
+                    <div class="#bdc3c7 cuadrado"></div>
+                    <div class="#95a5a6 cuadrado"></div>
+                    <div class="#7f8c8d cuadrado"></div>
+                    <div class="#000000 cuadrado"></div>
+                    <div class="#1abc9c cuadrado"></div>
+                    <div class="#16a085 cuadrado"></div>
+                    <div class="#2ecc71 cuadrado"></div>
+                    <div class="#27ae60 cuadrado"></div>
+                    <div class="#3498db cuadrado"></div>
+                    <div class="#2980b9 cuadrado"></div>
+                    <div class="#9b59b6 cuadrado"></div>
+                    <div class="#8e44ad cuadrado"></div>
+                    <div class="#34495e cuadrado"></div>
+                    <div class="#2c3e50 cuadrado"></div>   
+                    <div class="#f1c40f cuadrado"></div>
+                    <div class="#f39c12 cuadrado"></div>
+                </div>
+                <input type='text' class="basic">
+                <div class="acciones-botones">
+                    <div class="grilla">
+                        <p>SIZE</p>
+                        <input type="text" name="resize" id="resize" value="" />
+                        <button id="sizeit" class="btn"><span class="ion-android-arrow-forward"></span></button>
+                    </div>
+                    <button id="reset" class="btn"><span class="ion-trash-a"></span></button>
+                    <button id="toggleBorder" class="btn"><span class="ion-ios-grid-view-outline"></span></button>
+                    <button id="grab-it" class="btn"><span class="ion-checkmark"></span></button>
+                </div>
+                 <button id="bucket" class="btn"><span class="ion-paintbucket"></span></button>
+
+            </div>
 		</div>
+        <div id="right" class="help">
+            <h2>Uso de botones</h2>
+            <span class="ion-paintbucket"></span><p>Si quiere usar el balde, tenga en cuenta de que la seccion a pintar debe estar cerrada</p>
+            <span class="ion-trash-a"></span><p>Si quiere borrar todo su dibujo</p>
+            <span class="ion-ios-grid-view-outline"></span><p>Si quiere desactivar o activar las lineas de la grilla </p>
+            <h2>Guardado</h2>
+            <span class="ion-checkmark"></span><p>Use este icono si quiere guardar la imagen</p>
+            <p>Una ves guardada puede clickear en el icono de descarga para descargar la imagen</p>
+            <img src="images/descargar.png">
+            <p>Si guarda varias imagenes puede clickear en el icono de reproduccion para verlas rapidamente en una animacion</p>
+            <img src="images/gif.png">
+        </div>
+        <div id="frames"></div>
 	</body>
 </html>

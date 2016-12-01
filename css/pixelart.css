@@ -1,50 +1,283 @@
-body{
-	min-height: 100%;
+*{
+    outline: none;
+}
+html{
+    height: 100%;
+}
+body {
+    background-image:radial-gradient(#666,#000);
+    overflow: hidden;
+    height: 100%;
+    color:white;
+    font-family: 'Arial', sans-serif;
 }
 #container{
-	height:100%;
-	width:80%;
-	margin:0 auto;
+    background-color: #000;
+	width: 50%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #000;
+    height: 100%;
 }
-#colorPick{
-	float:left;
-	display:inline-block;
-	width:20%;
+/* JUEGO */
+
+#grilla {
+    background-color: #ecf0f1; 
+    width: 80%;
+    cursor: pointer;
+    float:left;
+    cursor:url("../images/pencil.png")0 20,pointer;
 }
-#accionesBotones{
-	display:inline-block;
-	float:right;
-	width:20%;
-}
-#grilla{
-	display:inline-block;
-	width:60%;
-	height: 400px;
-}
-#grilla .cell{
-	display: inline-block;
-	background-color: #ecf0f1;
-	outline: #666 solid thin;
-	cursor:pointer;
-}
-#grilla .cell.no-border{
-	outline:none;
-}
-#colorPick .select{
-	border:2px solid orange;
-}
-#colorPick div {
+
+#grilla .cell {
+    cursor:inherit;
     float: left;
-    width:40%;
+    background: #ecf0f1;
+    outline: 1px solid #fff;
+}
+#grilla .cell.no-border {
+    outline: 0 !important;
+}
+
+#actions {
+    background-color: #000;
+    width:80%;
+    float:left;
+}
+
+.btn {
+    border:none;
+    transition: 200ms;
+    height: 60%;
+    font-size: 30px;
+    color: #333;
+    float: left;
+    margin: 6px;
+    cursor: pointer;
+    background :none;
+}
+
+.btn:hover {
+    transform: scale(1.2);
+    color: #ffffff;
+}
+
+.acciones-botones {
+    background-color: #000;
+    margin:0;
+    width: 50%;
+    float: right;
+    height:100%;
+}
+
+#colorPick {
+    background-color: #000;
+    color:#333;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    width:37%;
+    float: left;
+    height:100%;
+    padding:2%;
+    margin-right: 3%
+}
+
+#colorPick>div {
+    transition:200ms;
+    float: left;
+    width: 11%;
     cursor: pointer;
     border-radius: 24px;
     margin: 2px;
     border: 1px solid #f1f1f1;
 }
-.no-border{
-	outline:none;
+#colorPick>div:hover{
+    transform:scale(1.2);
 }
-button{
-	width:30px;
-	height:30px;
+#colorPick>div.select {
+    border: 1px solid #000;
+}
+#colorPick::-webkit-scrollbar ,#images::-webkit-scrollbar ,.help::-webkit-scrollbar {
+    width: 0.5em;
+}
+ 
+#colorPick::-webkit-scrollbar-thumb,#images::-webkit-scrollbar-thumb ,.help::-webkit-scrollbar-thumb {
+    border-radius:1em;
+    background-color: #333;
+    outline: 1px solid slategrey;
+}
+.acciones-botones *{
+    box-sizing:border-box;
+    margin: 0;
+    display:inline-block;
+}
+.grilla{
+    height: 40%;
+    padding:3%;
+    border:1px solid black;
+    width:100%;
+}
+.grilla *{
+    height:100%;
+    box-sizing: border-box;
+}
+.grilla p{
+    font-weight: bold;
+    color: #333;
+    padding:5%;
+    width:30%;
+}
+.grilla input{
+    color:#333;
+    transition: 200ms;
+    background-color: #000;
+    border:none;
+    border-bottom: 1px solid #333;
+    height: 20px;
+    line-height: 1em;
+    outline:none;
+    width:40%;
+}
+.grilla input:focus{
+    color:#FFF;
+    border-bottom: 1px solid #fff;
+}
+.grilla button{
+    padding:5% 0;
+    border:none;
+    float:right;
+    width:24%;
+    color: #333;
+    border:none;
+}
+.grilla button:hover{
+    color: #fff;
+    border:none;
+}
+.acciones-botones>.btn{
+    width:33%;
+}
+#images{
+    overflow-x:hidden;
+    overflow-y:auto;
+	height:70%;
+	width:100%;
+}
+#images canvas{
+    z-index: 0;
+    width:100%;
+    position:static;
+	animation-name: shot;
+	animation-duration:1s;
+}
+#anim canvas{
+	width:100%;
+	height:100%;
+}
+#anim{
+    float:right;
+    width:100%;
+    display: inline-block;
+}
+#Animacion{
+    background-color: #000;
+    max-height:100vh;
+	float:right;
+	width:20%;
+	display: inline-block;
+}
+#container #actions #bucket{
+    box-sizing: border-box;
+    height: 60%;
+    margin:auto 0;
+    width:10%;
+}
+.basic + *{
+    height:40%;
+    box-sizing: border-box;
+    width:10%;
+    margin:0;
+    background-color: #000 !important;
+    padding:2%!important;
+    border:none!important;
+}
+
+#frames{
+    position:absolute;
+    left:400vh;
+}
+#images div a{
+    color:#333;
+    position: relative;
+    top:-30px;
+    left:1px;
+    background-color: #000;
+    font-size: 30px;
+    padding:5px 7px;
+}
+#images div a:hover{
+    color:#fff;
+}
+#anim img{
+	z-index: 3;
+	cursor:pointer;
+	width:100%;
+	height: 100%;
+	position:relative;
+	top:0;
+	left:0;
+	transition:200ms;
+}
+#anim img:hover{
+	transform:scale(1.2);
+}
+#anim canvas{
+	position:relative;
+	top:-100%;
+}
+@keyframes shot {
+    0%{
+        z-index: 100;
+        position:absolute;
+    	width:40%;
+    	left:25%;
+    }
+    100% {
+        position:absolute;
+    	width:10%;
+        left:65%;
+    }
+}
+#left{
+    background-color: #000;
+    position:absolute;
+    left:0;
+    top:0;
+    height: 100vh;
+    width:25%;
+}
+
+#right{
+    background-color: #000;
+    position:absolute;
+    right:0;
+    top:0;
+    height: 100vh;
+    width:25%;
+}
+.help{
+    box-sizing: border-box;
+    padding:1%;
+    font-size: 0.9em;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+.help img{
+    max-height: 16%;
+    margin:0 auto;
+}
+.help span{
+   margin-right: 2%;
+    font-size: 1.5em;
+    float:left;
 }
